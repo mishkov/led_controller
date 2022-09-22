@@ -400,13 +400,13 @@ class ControllerButton extends StatelessWidget {
   const ControllerButton({
     Key? key,
     required this.commandByte,
-    this.backgroundColor = Colors.white,
+    this.backgroundColor,
     required this.child,
   }) : super(key: key);
 
   final size = const Size(70, 54);
   final int commandByte;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final Widget child;
 
   @override
