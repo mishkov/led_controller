@@ -115,7 +115,7 @@ class KeyBoard extends StatelessWidget {
             const SizedBox(height: 8.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 ControllerTextButton(
                   backgroundColor: Colors.red,
                   label: 'R',
@@ -229,22 +229,22 @@ class KeyBoard extends StatelessWidget {
             const SizedBox(height: 8.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const ControllerIconButton(
+              children: const [
+                ControllerIconButton(
                   commandByte: LedContollerButtons.redUp,
                   icon: Icon(
                     Icons.arrow_downward,
                     color: Colors.red,
                   ),
                 ),
-                const ControllerIconButton(
+                ControllerIconButton(
                   commandByte: LedContollerButtons.greenUp,
                   icon: Icon(
                     Icons.arrow_downward,
                     color: Colors.green,
                   ),
                 ),
-                const ControllerIconButton(
+                ControllerIconButton(
                   commandByte: LedContollerButtons.blueUP,
                   icon: Icon(
                     Icons.arrow_downward,
@@ -260,22 +260,22 @@ class KeyBoard extends StatelessWidget {
             const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const ControllerIconButton(
+              children: const [
+                ControllerIconButton(
                   commandByte: LedContollerButtons.redDown,
                   icon: Icon(
                     Icons.arrow_downward,
                     color: Colors.red,
                   ),
                 ),
-                const ControllerIconButton(
+                ControllerIconButton(
                   commandByte: LedContollerButtons.greenDown,
                   icon: Icon(
                     Icons.arrow_downward,
                     color: Colors.green,
                   ),
                 ),
-                const ControllerIconButton(
+                ControllerIconButton(
                   commandByte: LedContollerButtons.blueDown,
                   icon: Icon(
                     Icons.arrow_downward,
@@ -291,7 +291,7 @@ class KeyBoard extends StatelessWidget {
             const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 ControllerTextButton(
                   commandByte: LedContollerButtons.diy1,
                   label: 'DIY1',
@@ -313,7 +313,7 @@ class KeyBoard extends StatelessWidget {
             const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 ControllerTextButton(
                   commandByte: LedContollerButtons.diy4,
                   label: 'DIY4',
@@ -335,7 +335,7 @@ class KeyBoard extends StatelessWidget {
             const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 ControllerTextButton(
                   commandByte: LedContollerButtons.jump3,
                   label: 'JUMP3',
