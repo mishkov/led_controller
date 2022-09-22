@@ -6,44 +6,55 @@ void main() {
   runApp(const LedControllerApp());
 }
 
-class LedControllerApp extends StatefulWidget {
+class HomeRoute extends StatefulWidget {
+  const HomeRoute({Key? key}) : super(key: key);
+
+  @override
+  State<HomeRoute> createState() => _HomeRouteState();
+}
+
+class LedControllerApp extends StatelessWidget {
   const LedControllerApp({Key? key}) : super(key: key);
 
   @override
-  State<LedControllerApp> createState() => _LedControllerAppState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Led Controller',
+      darkTheme: ThemeData.dark(),
+      home: const HomeRoute(),
+    );
+  }
 }
 
-class _LedControllerAppState extends State<LedControllerApp> {
+class _HomeRouteState extends State<HomeRoute> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitDown,
       DeviceOrientation.portraitUp,
     ]);
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('IR Led Controller'),
-        ),
-        body: Center(
-          child: FutureBuilder<bool>(
-              future: IrSensorPlugin.hasIrEmitter,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  final hasIr = snapshot.data!;
-                  if (hasIr) {
-                    IrSensorPlugin.setFrequencies(38000);
-                    return const KeyBoard();
-                  } else {
-                    return const Text('Your device have no ir sensor');
-                  }
-                } else if (snapshot.hasError) {
-                  return const Text('Error occured. Try again');
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('IR Led Controller'),
+      ),
+      body: Center(
+        child: FutureBuilder<bool>(
+            future: IrSensorPlugin.hasIrEmitter,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final hasIr = snapshot.data!;
+                if (hasIr) {
+                  IrSensorPlugin.setFrequencies(38000);
+                  return const KeyBoard();
                 } else {
-                  return const CircularProgressIndicator();
+                  return const Text('Your device have no ir sensor');
                 }
-              }),
-        ),
+              } else if (snapshot.hasError) {
+                return const Text('Error occured. Try again');
+              } else {
+                return const CircularProgressIndicator();
+              }
+            }),
       ),
     );
   }
