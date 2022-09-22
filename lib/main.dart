@@ -233,21 +233,21 @@ class KeyBoard extends StatelessWidget {
                 ControllerIconButton(
                   commandByte: LedContollerButtons.redUp,
                   icon: Icon(
-                    Icons.arrow_downward,
+                    Icons.arrow_upward,
                     color: Colors.red,
                   ),
                 ),
                 ControllerIconButton(
                   commandByte: LedContollerButtons.greenUp,
                   icon: Icon(
-                    Icons.arrow_downward,
+                    Icons.arrow_upward,
                     color: Colors.green,
                   ),
                 ),
                 ControllerIconButton(
                   commandByte: LedContollerButtons.blueUP,
                   icon: Icon(
-                    Icons.arrow_downward,
+                    Icons.arrow_upward,
                     color: Colors.blue,
                   ),
                 ),
