@@ -393,7 +393,7 @@ class ControllerButton extends StatelessWidget {
     required this.child,
   }) : super(key: key);
 
-  final size = const Size(90, 54);
+  final size = const Size(70, 54);
   final int commandByte;
   final Color backgroundColor;
   final Widget child;
