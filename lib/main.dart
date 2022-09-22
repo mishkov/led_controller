@@ -379,21 +379,39 @@ class ControllerFlatButton extends ControllerButton {
 }
 
 class ControllerTextButton extends ControllerButton {
-  ControllerTextButton({
+  const ControllerTextButton({
     Key? key,
-    required String label,
+    required this.label,
     required super.commandByte,
     super.backgroundColor,
-  }) : super(
-          key: key,
-          child: Text(
-            label,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Colors.black,
-            ),
-          ),
-        );
+  }) : super(key: key);
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final Color? textColor;
+    final backgroundColorBrightness = ThemeData.estimateBrightnessForColor(
+      backgroundColor ?? Theme.of(context).scaffoldBackgroundColor,
+    );
+    if (backgroundColorBrightness == Brightness.light) {
+      textColor = ThemeData.light().textTheme.bodyText2?.color;
+    } else {
+      textColor = ThemeData.dark().textTheme.bodyText2?.color;
+    }
+
+    return ControllerButton(
+      commandByte: commandByte,
+      backgroundColor: backgroundColor,
+      child: Text(
+        label,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: textColor,
+        ),
+      ),
+    );
+  }
 }
 
 class ControllerButton extends StatelessWidget {
@@ -401,13 +419,13 @@ class ControllerButton extends StatelessWidget {
     Key? key,
     required this.commandByte,
     this.backgroundColor,
-    required this.child,
+    this.child,
   }) : super(key: key);
 
   final size = const Size(70, 54);
   final int commandByte;
   final Color? backgroundColor;
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
